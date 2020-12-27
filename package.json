@@ -1,0 +1,47 @@
+{
+  "name": "lambda-surf",
+  "version": "1.0.0",
+  "description": "Automate surfing the web with AWS Lambda and Slack.",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "serverless deploy --config infrastructure/aws.yml",
+    "remove": "serverless remove --config infrastructure/aws.yml",
+    "test": "jest --silent",
+    "test:verbose": "jest",
+    "test:coverage": "jest src --coverage --silent"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/peasey/lambda-surf.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/peasey/lambda-surf/issues"
+  },
+  "homepage": "https://github.com/peasey/lambda-surf#readme",
+  "devDependencies": {
+    "aws-sdk": "^2.810.0",
+    "eslint": "^7.2.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^7.0.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.3.0",
+    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-react-hooks": "^4.0.0",
+    "jest": "^26.6.3",
+    "jest-extended": "^0.11.5",
+    "mock-fs": "^4.13.0",
+    "prettier": "^2.2.1",
+    "puppeteer": "^5.5.0",
+    "serverless": "^2.15.0"
+  },
+  "dependencies": {
+    "chrome-aws-lambda": "^5.5.0",
+    "dotenv": "^8.2.0",
+    "lodash": "^4.17.20",
+    "node-fetch": "^2.6.1",
+    "puppeteer-core": "^5.5.0"
+  }
+}

@@ -1,0 +1,29 @@
+service: lambda-surf
+useDotenv: true
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  region: eu-west-1
+  stage: ${env:ENVIRONMENT, 'prod'}
+  iamRoleStatements:
+    - Effect: 'Allow'
+      Action:
+        - 'events:DescribeRule'
+      Resource: '*'
+
+plugins:
+  - task-schedules
+
+package:
+  exclude:
+    - '!src/**'
+    - '!node_modules/**'
+
+functions:
+  host:
+    handler: src/integration/aws/lambda/host.handler
+    timeout: 600
+    environment:
+      SLACK_ENDPOINT: ${env:SLACK_ENDPOINT}
+      TASKS_LOCATION: ${env:TASKS_LOCATION}
