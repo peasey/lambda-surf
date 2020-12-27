@@ -4,6 +4,7 @@ const name = 'Footy gossip'
 const url = 'https://www.bbc.co.uk/sport/football/gossip'
 const emoji = ':soccer:'
 const schedule = 'rate(1 day)'
+const shouldNotify = () => true
 
 async function run(context) {
   let result
@@ -60,7 +61,7 @@ const task = (
   url,
   emoji,
   schedule,
-  shouldNotify: () => true,
+  shouldNotify,
   run: async () => run(context),
 })
 

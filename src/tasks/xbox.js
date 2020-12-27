@@ -4,6 +4,7 @@ const name = 'Xbox Series X Stock'
 const url = 'https://www.xbox.com/en-GB/consoles/xbox-series-x#purchase'
 const emoji = ':joystick:'
 const schedule = 'rate(1 hour)'
+const shouldNotify = (result) => result.match(/^No stock/) == null
 
 async function run(context) {
   let result
@@ -81,7 +82,7 @@ const task = (
   url,
   emoji,
   schedule,
-  shouldNotify: (result) => result.match(/^No stock/) == null,
+  shouldNotify,
   run: async () => run(context),
 })
 
