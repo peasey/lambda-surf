@@ -73,4 +73,17 @@ describe('tasks:xbox', () => {
     expect(actual).toMatch(/(retailer2.co.uk)*(IN STOCK)*(retailer4.co.uk)*(STOCK!)/)
     expect(notify).toBe(true)
   })
+
+  it('will notify if there is an error', async () => {
+    const context = {
+      browserFactory: browserFactory(null),
+    }
+    const container = []
+    require('./xbox')(container, context)
+    const subject = container[0]
+    const actual = await subject.run()
+    const notify = subject.shouldNotify(actual)
+    expect(actual).toBeFalsy()
+    expect(notify).toBe(true)
+  })
 })
