@@ -1,7 +1,7 @@
 # Lambda Surf
 Automate surfing the web so you don't have to, with AWS Lambda, headless Chrome, Puppeteer and Slack. 
 
-There is an [accompanying blog post](https://blog.peasey.co.uk/blog/slug-here) for this repo with background, implementation notes and demos.
+There is an [accompanying blog post](https://blog.peasey.co.uk/blog/using-aws-lambda-and-slack-to-browse-the-web-so-you-dont-have-to) for this repo with background, implementation notes and demos.
 
 # Setup and Installation
 Clone the repo and install the dependencies:
