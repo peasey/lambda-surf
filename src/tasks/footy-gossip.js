@@ -54,7 +54,7 @@ async function run(context) {
 const task = (
   context = {
     browserFactory: require('../integration/aws/lambda/browser'),
-    rumourMatcher: /(Newcastle|Toon)/,
+    rumourMatcher: /(Newcastle|Toon|Magpies)/,
   },
 ) => ({
   name,

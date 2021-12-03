@@ -1,4 +1,4 @@
-const log = require('../integration/logging')('task:xbox-series-x')
+const log = require('../../integration/logging')('task:xbox-series-x')
 
 const name = 'Xbox Series X Stock'
 const url = 'https://www.xbox.com/en-GB/consoles/xbox-series-x#purchase'
@@ -75,7 +75,7 @@ async function run(context) {
 
 const task = (
   context = {
-    browserFactory: require('../integration/aws/lambda/browser'),
+    browserFactory: require('../../integration/aws/lambda/browser'),
   },
 ) => ({
   name,

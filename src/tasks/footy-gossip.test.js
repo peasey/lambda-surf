@@ -3,6 +3,7 @@ const rumours = [
   `This rumour does not have the keyword in it`,
   `This rumour has an alternative keyword check in it`,
   `This rumour does not have any keywords in it`,
+  `This rumour has an uppercased keyword CHECK in it`,
 ]
 
 const mockJsonItem = (data) => ({
@@ -56,5 +57,18 @@ describe('tasks:footy-gossip', () => {
     const actual = await subject.run()
     expect(actual).toMatch(rumours[0])
     expect(actual).toMatch(rumours[2])
+  })
+
+  it('will match case-insensitive and filter the rumours when they exist', async () => {
+    const context = {
+      browserFactory: browserFactory(mockPage(rumourElements)),
+      rumourMatcher: /(test|check)/i,
+    }
+    const container = []
+    require('./footy-gossip')(container, context)
+    const subject = container[0]
+    const actual = await subject.run()
+    expect(actual).toMatch(rumours[0])
+    expect(actual).toMatch(rumours[4])
   })
 })
